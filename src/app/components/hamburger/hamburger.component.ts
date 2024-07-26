@@ -9,11 +9,10 @@ import {CommonModule} from "@angular/common";
   styleUrl: './hamburger.component.less'
 })
 export class HamburgerComponent {
-  isActive = false;
+  @Output() public toggled = new EventEmitter<void>();
+  public isActive = false;
 
-  @Output() toggled = new EventEmitter<void>();
-
-  toggle() {
+  public toggle(): void {
     this.isActive = !this.isActive;
     this.toggled.emit();
   }

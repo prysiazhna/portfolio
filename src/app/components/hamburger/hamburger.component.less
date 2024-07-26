@@ -1,50 +1,54 @@
+@import './variables.less';
+
 .hamburger-button {
-  width: 50px;
-  height: 50px;
-  border-radius: 5px;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 0.6rem;
   cursor: pointer;
   position: relative;
-}
 
-.hamburger-button span {
-  position: absolute;
-  background: #000;
-  display: inline-block;
-  border-radius: 3px;
-  left: 14px;
-  height: 3px;
-  transition: transform 0.5s ease;
-}
+  span {
+    position: absolute;
+    background: @black;
+    display: inline-block;
+    border-radius: 0.38rem;
+    left: 1.75rem;
+    height: 0.38rem;
+    transition: transform 0.7s ease;
 
-.hamburger-button span:nth-of-type(1) {
-  top: 15px;
-  width: 45%;
-}
+    &:nth-of-type(1) {
+      top: 1.9rem;
+      width: 45%;
+    }
 
-.hamburger-button span:nth-of-type(2) {
-  top: 23px;
-  width: 35%;
-}
+    &:nth-of-type(2) {
+      top: 2.8rem;
+      width: 35%;
+    }
 
-.hamburger-button span:nth-of-type(3) {
-  top: 31px;
-  width: 20%;
-}
+    &:nth-of-type(3) {
+      top: 3.75rem;
+      width: 20%;
+    }
+  }
 
-.hamburger-button.active span:nth-of-type(1) {
-  width: 45%;
-  top: 18px;
-  left: 14px;
-  transform: translateY(6px) rotate(-135deg);
-}
+  &.active span {
+    &:nth-of-type(1) {
+      width: 45%;
+      top: 2.25rem;
+      left: 1.75rem;
+      transform: translateY(0.75rem) rotate(-135deg);
+    }
 
-.hamburger-button.active span:nth-of-type(2) {
-  opacity: 0;
-}
+    &:nth-of-type(2) {
+      opacity: 0;
+    }
 
-.hamburger-button.active span:nth-of-type(3) {
-  width: 45%;
-  top: 30px;
-  left: 14px;
-  transform: translateY(-6px) rotate(135deg);
+    &:nth-of-type(3) {
+      width: 45%;
+      top: 3.75rem;
+      left: 1.75rem;
+      transform: translateY(-0.75rem) rotate(135deg);
+    }
+  }
 }

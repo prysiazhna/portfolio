@@ -25,10 +25,6 @@ export class HeaderComponent {
 
   public toggleMenu():void {
     this.isMenuActive = !this.isMenuActive;
-    if (this.isMenuActive) {
-      document.body.classList.add('no-scroll');
-    } else {
-      document.body.classList.remove('no-scroll');
-    }
+    document.body.classList.toggle('no-scroll', this.isMenuActive);
   }
 }

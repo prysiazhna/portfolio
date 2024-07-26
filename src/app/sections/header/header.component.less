@@ -34,7 +34,7 @@
     width: 100%;
 
     .logo {
-      font-size: 2rem;
+      font-size: 4rem;
     }
 
     .menu {
@@ -43,11 +43,11 @@
       .list {
         list-style: none;
         display: flex;
-        gap: 2rem;
+        gap: 4rem;
 
         .list-item-link {
           text-decoration: none;
-          font-size: 24px;
+          font-size: 3rem;
           color: black;
           transition: width 0.3s ease;
           position: relative;
@@ -86,51 +86,52 @@
     height: 80px;
     padding-top: 25px;
     align-items: flex-start;
-  }
 
-  .header .container {
-    flex-direction: column;
-    justify-content: space-around;
-    height: auto;
-
-    .top-panel {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      width: 100%;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-
-    .menu {
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0s, opacity 0.8s linear, height .8s ease;
+    .container {
       flex-direction: column;
-      width: 100%;
-      padding-bottom: 20px;
-      padding-top: 70px;
+      justify-content: space-around;
+      height: auto;
 
-      &.dark-theme {
-        background: rgba(0, 0, 0, 0.7);
-      }
-
-      &.active {
+      .top-panel {
         display: flex;
-        visibility: visible;
-        opacity: 1;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
       }
 
-      .list {
+      .hamburger {
+        display: flex;
+      }
+
+      .menu {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.8s linear, height .8s ease;
         flex-direction: column;
-        gap: 10px;
-        align-items: center;
+        width: 100%;
+        padding-bottom: 20px;
+        padding-top: 70px;
+
+        &.dark-theme {
+          background: rgba(0, 0, 0, 0.7);
+        }
+
+        &.active {
+          display: flex;
+          visibility: visible;
+          opacity: 1;
+        }
+
+        .list {
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+        }
       }
     }
   }
+
 }
 
 @media (max-width: 600px) {

@@ -1,29 +1,37 @@
-import {Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[appShrinkHeader]',
   standalone: true
 })
-export class ShrinkHeaderDirective {
+export class ShrinkHeaderDirective implements AfterViewInit {
   @Input() enableShrink: boolean = true;
-  private initialHeight: string = '17vh';
-  private shrunkHeight: string = '8vh';
-  private scrollThreshold: number = 50;
-  public innerWidth=0;
+  public initialHeight: string = '17vh';
+  public shrunkHeight: string = '8vh';
+  public innerWidth = 0;
+  public readonly scrollThreshold: number = 50;
+  public readonly breakpoint: number = 900;
 
   constructor(private el: ElementRef, private renderer: Renderer2) {
   }
 
+  public ngAfterViewInit(): void {
+    this.innerWidth = this.el.nativeElement.offsetWidth;
+  }
+
   @HostListener('window:resize', ['$event'])
-  onResize() {
+  public onResize(): void {
     this.innerWidth = window.innerWidth;
-    this.removeStyle();
+    if (this.innerWidth < this.breakpoint) {
+      this.removeStyle();
+      return;
+    }
   }
 
   @HostListener('window:scroll', [])
-  onWindowScroll() {
-    if (this.innerWidth < 900) {
-      this.renderer.removeStyle(this.el.nativeElement, 'height');
+  public onWindowScroll(): void {
+    if (this.innerWidth < this.breakpoint) {
+      this.removeStyle();
       return;
     }
     let calculatedHeight = window.pageYOffset > this.scrollThreshold ? this.shrunkHeight : this.initialHeight;
@@ -31,9 +39,6 @@ export class ShrinkHeaderDirective {
   }
 
   public removeStyle(): void {
-    if (this.innerWidth < 900) {
-      this.renderer.removeStyle(this.el.nativeElement, 'height');
-      return;
-    }
+    this.renderer.removeStyle(this.el.nativeElement, 'height');
   }
 }

@@ -35,13 +35,21 @@ export class ThemeSwitcherComponent implements OnInit{
     @Inject(DOCUMENT) private document: Document,
     private themeService: ThemeService
   ) {
-    this.themeIcon$ = this.themeService.theme$.pipe(
-      map(theme => theme === 'dark' ? 'ico icon-sun' :'ico icon-brightness_3')
-    );
-    this.themeColor$ = this.themeService.color$;
+    this.getTheme();
   }
 
   public ngOnInit(): void {
+    this.setThemeColor();
+  }
+
+  public getTheme(): void {
+    this.themeColor$ = this.themeService.color$;
+    this.themeIcon$ = this.themeService.theme$.pipe(
+      map(theme => theme === 'dark' ? 'ico icon-sun' :'ico icon-brightness_3')
+    );
+  }
+
+  private setThemeColor(): void {
     this.themeColor$.subscribe(color => {
       this.document.documentElement.style.setProperty('--theme-color', color);
     });

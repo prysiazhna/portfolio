@@ -8,5 +8,5 @@
        class="color-option"
        [ngClass]="color.class"
        (click)="changeColor(color.value)"
-       [@paletteItemAnimation]="{value: '',params: {delay: (colorOptions.length - i - 1) * 50}}"></div>
+       [@paletteItemAnimation]="{ value: '', params: { delay: (colorOptions.length - i - 1) * 50 }}"></div>
 </div>

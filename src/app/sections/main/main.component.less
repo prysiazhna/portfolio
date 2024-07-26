@@ -1,144 +1,144 @@
-  .main-content {
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 83vh;
+  padding-top: 17vh;
+
+  .profile {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 83vh;
-    padding-top: 17vh;
+    gap: 12rem;
 
-    .profile {
+    .profile-image {
+      border-radius: 50%;
+      width: 50rem;
+      height: 50rem;
+      transition: transform 2s ease, box-shadow 2s ease;
+
+      &:hover {
+        --box-shadow-color: var(--theme-color);
+        box-shadow: 0 -14px 130px -19px var(--box-shadow-color);
+      }
+    }
+
+    .info {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 6rem;
 
-      .profile-image {
-        border-radius: 50%;
-        width: 400px;
-        height: 400px;
-        transition: transform 2s ease, box-shadow 2s ease;
+      .greeting {
+        color: #555555;
+        font-weight: 600;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        letter-spacing: 2px;
+      }
+
+      .name {
+        font-weight: 400;
+        margin: 0;
+        transition: transform 0.4s ease;
+        font-size: 3.5rem;
 
         &:hover {
-          --box-shadow-color: var(--theme-color);
-          box-shadow: 0 -14px 130px -19px var(--box-shadow-color);
+          transform: scale(1.2);
         }
       }
 
-      .info {
+      .role {
+        color: #555555;
+        font-weight: 400;
+        font-size: 2.8rem;
+        margin: 2rem 0;
+        letter-spacing: 0.5rem;
+      }
+
+      .buttons {
         display: flex;
-        flex-direction: column;
+        gap: 2rem;
+
+        .btn {
+          font-weight: 600;
+          transition: all 300ms ease;
+          padding: 1.6rem;
+          width: 16rem;
+          border-radius: 4rem;
+          border: var(--theme-color) 0.2rem solid;
+
+          &-outline {
+            color: var(--theme-color);
+            background: none;
+
+            &:hover {
+              color: #fff;
+              background: var(--theme-color);
+              cursor: pointer;
+            }
+          }
+
+          &-filled {
+            color: #fff;
+            background: var(--theme-color);
+
+            &:hover {
+              background: #555555;
+              border-color: #555555;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .social-links {
+        display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 2rem;
 
-        .greeting {
-          color: #555555;
-          font-weight: 600;
-          font-size: 1rem;
-          margin-bottom: 1rem;
-          letter-spacing: 2px;
-        }
-
-        .name {
-          font-weight: 400;
-          margin: 0;
+        .link-icon {
+          color: var(--theme-color);
+          text-decoration: none;
           transition: transform 0.4s ease;
 
           &:hover {
-            transform: scale(1.2);
+            transform: scale(1.5);
           }
-        }
 
-        .role {
-          color: #555555;
-          font-weight: 400;
-          font-size: 1.4rem;
-          margin: 1rem 0;
-          letter-spacing: 4px;
-        }
-
-        .buttons {
-          display: flex;
-          gap: 1rem;
-
-          .btn {
-            font-weight: 600;
-            transition: all 300ms ease;
-            padding: 0.8rem;
-            width: 8rem;
-            border-radius: 2rem;
-            border: var(--theme-color) 0.1rem solid;
-
-            &-outline {
-              color: var(--theme-color);
-              background: none;
-
-              &:hover {
-                color: #fff;
-                background: var(--theme-color);
-                cursor: pointer;
-              }
-            }
-
-            &-filled {
-              color: #fff;
-              background: var(--theme-color);
-
-              &:hover {
-                background: #555555;
-                border-color: #555555;
-                cursor: pointer;
-              }
-            }
+          .icon-linkedin2 {
+            background-color: var(--theme-color);
+            border-radius: 50%;
+            color: #fff;
+            margin: 0 1rem;
+            width: 27px;
+            height: 27px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
-        }
 
-        .social-links {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-top: 1rem;
-
-          .link-icon {
-            color: var(--theme-color);
-            text-decoration: none;
-            transition: transform 0.4s ease;
-
-            &:hover {
-              transform: scale(1.5);
-            }
-
-            .icon-linkedin2 {
-              background-color: var(--theme-color);
-              border-radius: 50%;
-              color: #fff;
-              margin: 0 0.5rem;
-              width: 27px;
-              height: 27px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            }
-
-            .icon-github {
-              font-size: 2rem;
-              margin: 0 0.5rem;
-            }
+          .icon-github {
+            font-size: 4rem;
+            margin: 0 1rem;
           }
         }
       }
     }
   }
-
+}
 
 @media (max-width: 900px) {
   .main-content {
     flex-direction: column;
-    //padding-top: 30px;
+
     .profile {
       flex-direction: column;
-      gap: 3rem;
+      gap: 6rem;
 
       .profile-image {
-        width: 300px;
-        height: 300px;
+        width: 37.5rem;
+        height: 37.5rem;
       }
     }
   }
@@ -147,7 +147,6 @@
 @media (max-width: 600px) {
   .main-content {
     flex-direction: column;
-    //padding-top: 30px;
 
     .profile {
       flex-direction: column;
