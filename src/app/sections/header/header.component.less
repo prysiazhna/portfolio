@@ -1,0 +1,149 @@
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: height .6s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &.expanded {
+    height: 100vh;
+  }
+
+  &.dark-theme {
+    background: rgba(0, 0, 0, 0.7);
+
+    ::ng-deep {
+      .hamburger .hamburger-button span {
+        background: #fff;
+      }
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 17vh;
+    padding: 0 20px;
+    width: 100%;
+
+    .logo {
+      font-size: 2rem;
+    }
+
+    .menu {
+      display: flex;
+
+      .list {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+
+        .list-item-link {
+          text-decoration: none;
+          font-size: 24px;
+          color: black;
+          transition: width 0.3s ease;
+          position: relative;
+
+          &:hover, &.active {
+            color: var(--theme-color);
+
+            &::after {
+              width: 100%;
+              left: 0;
+            }
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--theme-color);
+            transition: width 0.3s ease, left 0.3s ease;
+          }
+        }
+      }
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .header {
+    height: 80px;
+    padding-top: 25px;
+    align-items: flex-start;
+  }
+
+  .header .container {
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+
+    .top-panel {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .menu {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.8s linear, height .8s ease;
+      flex-direction: column;
+      width: 100%;
+      padding-bottom: 20px;
+      padding-top: 70px;
+
+      &.dark-theme {
+        background: rgba(0, 0, 0, 0.7);
+      }
+
+      &.active {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .list {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .header .container {
+    flex-direction: column;
+    height: 10vh;
+
+    .logo {
+      display: none;
+    }
+
+    .menu {
+      top: 10vh;
+    }
+  }
+}

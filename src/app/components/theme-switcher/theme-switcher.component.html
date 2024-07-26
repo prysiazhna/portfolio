@@ -1,0 +1,12 @@
+<div class="theme-switcher">
+  <i [className]="themeIcon$ | async" (click)="toggleTheme()"></i>
+  <i class="ico icon-gear" (click)="togglePalette()"></i>
+</div>
+
+<div class="palette" *ngIf="showPalette">
+  <div *ngFor="let color of colorOptions; let i = index"
+       class="color-option"
+       [ngClass]="color.class"
+       (click)="changeColor(color.value)"
+       [@paletteItemAnimation]="{value: '',params: {delay: (colorOptions.length - i - 1) * 50}}"></div>
+</div>

@@ -1,0 +1,33 @@
+<header
+  class="header"
+  appShrinkHeader
+  [enableShrink]="!isMenuActive"
+  [ngClass]="{'expanded': isMenuActive,'dark-theme': isDarkTheme$ | async}">
+  <div class="container">
+
+    <div class="top-panel">
+      <div class="logo">Olha Prysiazhna</div>
+      <div class="hamburger">
+        <app-hamburger (toggled)="toggleMenu()"></app-hamburger>
+      </div>
+    </div>
+
+    <nav class="menu" [ngClass]="{'active': isMenuActive,'dark-theme': isDarkTheme$ | async}">
+      <ul class="list">
+        <li class="list-item">
+          <a href="#about" class="list-item-link" (click)="toggleMenu()">About</a>
+        </li>
+        <li class="list-item">
+          <a href="#experience" class="list-item-link" (click)="toggleMenu()">Experience</a>
+        </li>
+        <li class="list-item">
+          <a href="#projects" class="list-item-link" (click)="toggleMenu()">Projects</a>
+        </li>
+        <li class="list-item">
+          <a href="#contact" class="list-item-link" (click)="toggleMenu()">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+

@@ -26,11 +26,19 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "less",
             "assets": [
+              "src/favicon.ico",
+              "src/assets",
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets/fonts",
+                "output": "fonts"
               }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/less"
+              ]
+            },
             "styles": [
               "src/styles.less"
             ],
