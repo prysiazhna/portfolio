@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CommonModule} from "@angular/common";
 
 @Component({
@@ -9,8 +9,8 @@ import {CommonModule} from "@angular/common";
   styleUrl: './hamburger.component.less'
 })
 export class HamburgerComponent {
+  @Input() public isActive = false;
   @Output() public toggled = new EventEmitter<void>();
-  public isActive = false;
 
   public toggle(): void {
     this.isActive = !this.isActive;

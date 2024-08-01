@@ -2,29 +2,26 @@
   class="header"
   appShrinkHeader
   [enableShrink]="!isMenuActive"
-  [ngClass]="{'expanded': isMenuActive,'dark-theme': isDarkTheme$ | async}">
+  [ngClass]="{'expanded': isMenuActive,'dark-theme': isDarkTheme$ | async}"
+  appScrollSpy
+  [(activeSection)]="activeSection">
   <div class="container">
-
     <div class="top-panel">
-      <div class="logo">Olha Prysiazhna</div>
+      <div class="logo" (click)="scrollToTop()">Olha Prysiazhna</div>
       <div class="hamburger">
-        <app-hamburger (toggled)="toggleMenu()"></app-hamburger>
+        <app-hamburger [isActive]="isMenuActive" (toggled)="toggleMenu()"></app-hamburger>
       </div>
     </div>
 
-    <nav class="menu" [ngClass]="{'active': isMenuActive,'dark-theme': isDarkTheme$ | async}">
+    <nav class="menu" [ngClass]="{'active': isMenuActive, 'dark-theme': isDarkTheme$ | async}">
       <ul class="list">
-        <li class="list-item">
-          <a href="#about" class="list-item-link" (click)="toggleMenu()">About</a>
-        </li>
-        <li class="list-item">
-          <a href="#experience" class="list-item-link" (click)="toggleMenu()">Experience</a>
-        </li>
-        <li class="list-item">
-          <a href="#projects" class="list-item-link" (click)="toggleMenu()">Projects</a>
-        </li>
-        <li class="list-item">
-          <a href="#contact" class="list-item-link" (click)="toggleMenu()">Contact</a>
+        <li *ngFor="let item of menuItems" class="list-item">
+          <a
+            class="list-item-link"
+            (click)="scrollTo(item.section)"
+            [ngClass]="{'active': activeSection === item.section}">
+            {{ item.label }}
+          </a>
         </li>
       </ul>
     </nav>

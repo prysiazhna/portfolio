@@ -5,6 +5,13 @@
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "strict": true,
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": ["app/components/*"],
+      "@directives/*": ["app/directives/*"],
+      "@configs/*": ["app/configs/*"],
+      "@models/*": ["app/models/*"]
+    },
     "noImplicitOverride": true,
     "strictPropertyInitialization": false,
     "noPropertyAccessFromIndexSignature": true,

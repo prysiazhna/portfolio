@@ -35,6 +35,12 @@
 
     .logo {
       font-size: 4rem;
+      transition: all 0.8s ease;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+      }
     }
 
     .menu {
@@ -54,6 +60,7 @@
 
           &:hover, &.active {
             color: var(--theme-color);
+            cursor: pointer;
 
             &::after {
               width: 100%;

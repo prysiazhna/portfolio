@@ -1,4 +1,4 @@
-import {ColorOptionsModel} from "../models/common.models";
+import {ColorOptionsModel} from "@models/common.models";
 
 export const ColorOptions: ColorOptionsModel[] = [
   { class: 'blue', value: '#4884ec' },

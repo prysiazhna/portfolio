@@ -4,8 +4,8 @@ import {ThemeService} from "./theme-switcher.service";
 import {map, Observable} from "rxjs";
 import { DOCUMENT } from '@angular/common';
 import {animate, style, transition, trigger} from "@angular/animations";
-import {ColorOptionsModel} from "../../models/common.models";
-import {ColorOptions} from "../../configs/theme.config";
+import {ColorOptionsModel} from "@models/common.models";
+import {ColorOptions} from "@configs/theme.config";
 
 @Component({
   selector: 'app-theme-switcher',
