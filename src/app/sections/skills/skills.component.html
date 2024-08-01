@@ -1,1 +1,6 @@
-<p id="skills">skills</p>
+<div id="skills">
+  <h1 class="section-title">Skills</h1>
+  <div class="icons" >
+    <img *ngFor="let tech of techStack" [src]="'assets/images/' + tech + '.svg'" [alt]="tech" class="tech-icon">
+  </div>
+</div>

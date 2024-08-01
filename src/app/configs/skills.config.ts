@@ -1,0 +1,22 @@
+export const TechStack = [
+  'typescript',
+  'js',
+  'angular',
+  'react',
+  'ionic',
+  'rxjs',
+  'node',
+  'graphql',
+  'nest',
+  'firebase',
+  'mongo',
+  'postgresql',
+  'redux',
+  'css',
+  'html',
+  'sass',
+  'tailwind',
+  'material',
+  'bootstrap',
+  'git'
+];
