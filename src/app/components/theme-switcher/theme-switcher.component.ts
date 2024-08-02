@@ -1,35 +1,25 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {ThemeService} from "./theme-switcher.service";
 import {map, Observable} from "rxjs";
 import { DOCUMENT } from '@angular/common';
-import {animate, style, transition, trigger} from "@angular/animations";
 import {ColorOptionsModel} from "@models/common.models";
 import {ColorOptions} from "@configs/theme.config";
+import {gsap} from "gsap";
 
 @Component({
   selector: 'app-theme-switcher',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './theme-switcher.component.html',
-  styleUrl: './theme-switcher.component.less',
-  animations: [
-    trigger('paletteItemAnimation', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(-20px)' }),
-        animate('200ms {{delay}}ms ease-in', style({ opacity: 1, transform: 'translateY(0)' }))
-      ], { params: { delay: 0 } }),
-      transition(':leave', [
-        animate('200ms ease-out', style({ opacity: 0, transform: 'translateY(-20px)' }))
-      ])
-    ])
-  ]
+  styleUrl: './theme-switcher.component.less'
 })
-export class ThemeSwitcherComponent implements OnInit{
+export class ThemeSwitcherComponent implements OnInit, AfterViewInit{
   public themeIcon$: Observable<string>;
   public themeColor$: Observable<string>;
   public showPalette: boolean = false;
   public colorOptions: ColorOptionsModel[] = ColorOptions;
+  @ViewChildren('colorOption') colorOptionsElements!: QueryList<any>;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -41,7 +31,13 @@ export class ThemeSwitcherComponent implements OnInit{
   public ngOnInit(): void {
     this.setThemeColor();
   }
-
+  public ngAfterViewInit(): void {
+    this.colorOptionsElements.changes.subscribe(() => {
+      if (this.showPalette) {
+        this.animatePaletteItems();
+      }
+    });
+  }
   public getTheme(): void {
     this.themeColor$ = this.themeService.color$;
     this.themeIcon$ = this.themeService.theme$.pipe(
@@ -66,5 +62,12 @@ export class ThemeSwitcherComponent implements OnInit{
   public changeColor(color: string): void {
     this.themeService.changeColor(color);
     this.showPalette = false;
+  }
+  private animatePaletteItems(): void {
+    gsap.fromTo('.color-option',
+      { x: 0 },
+      { x: -38, duration: 0.1,
+        ease: "expo.out", stagger: 0.1 }
+    );
   }
 }

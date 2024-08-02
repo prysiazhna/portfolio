@@ -7,3 +7,7 @@ export interface MenuItemsModel {
   label: string;
   section: string;
 }
+
+export interface ITechStack {
+  [key: string]: string;
+}

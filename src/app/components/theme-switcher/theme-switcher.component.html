@@ -5,8 +5,9 @@
 
 <div class="palette" *ngIf="showPalette">
   <div *ngFor="let color of colorOptions; let i = index"
+       #colorOption
        class="color-option"
        [ngClass]="color.class"
-       (click)="changeColor(color.value)"
-       [@paletteItemAnimation]="{ value: '', params: { delay: (colorOptions.length - i - 1) * 50 }}"></div>
+       (click)="changeColor(color.value)">
+  </div>
 </div>

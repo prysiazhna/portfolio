@@ -1,6 +1,10 @@
-<div id="skills">
+<div id="skills" class="container">
   <h1 class="section-title">Skills</h1>
-  <div class="icons" >
-    <img *ngFor="let tech of techStack" [src]="'assets/images/' + tech + '.svg'" [alt]="tech" class="tech-icon">
+  <div class="icons">
+    <div class="tooltip theme-text" *ngFor="let techKey of techStackKeys">
+      <img [src]="'assets/images/' + techKey + '.svg'" [alt]="techStack[techKey]" class="tech-icon">
+      <span class="tooltip-text">{{ techStack[techKey] }}</span>
+    </div>
   </div>
 </div>
+
