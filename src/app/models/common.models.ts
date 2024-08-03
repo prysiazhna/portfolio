@@ -8,6 +8,16 @@ export interface MenuItemsModel {
   section: string;
 }
 
-export interface ITechStack {
+export interface TechStackModel {
   [key: string]: string;
 }
+
+export interface TimelineItemModel {
+  icon: string;
+  title:  string;
+  content:  string;
+  year: string;
+  right: boolean;
+}
+
+

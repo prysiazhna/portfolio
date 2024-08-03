@@ -35,7 +35,7 @@ export class SkillsComponent implements AfterViewInit {
           ease: 'none',
           scrollTrigger: {
             trigger: '#skills',
-            start: 'top top',
+            start: 'center center',
             end: `+=${scrollEnd}`,
             scrub: true,
             pin: true,

@@ -1,6 +1,6 @@
-import {ITechStack} from "@models/common.models";
+import {TechStackModel} from "@models/common.models";
 
-export const TechStack: ITechStack = {
+export const TechStack: TechStackModel = {
   'typescript': 'TypeScript',
   'js': 'JavaScript',
   'angular': 'Angular',
