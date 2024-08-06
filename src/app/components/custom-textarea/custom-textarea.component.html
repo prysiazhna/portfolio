@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <textarea
+    class="custom-textarea"
+    autocomplete="off"
+    [attr.name]="controlName"
+    [attr.id]="controlName"
+    [(ngModel)]="value"
+    (input)="onInput($event)"
+    (focus)="onFocus()"
+    (blur)="onBlur()"></textarea>
+  <label class="custom-label theme-text" [for]="controlName" [class.active]="isActive">{{ label }}</label>
+
+  <ng-container *ngIf="errors.length > 0">
+    <div class="error" *ngFor="let error of errors">{{ error }}</div>
+  </ng-container>
+</div>

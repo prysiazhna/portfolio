@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <input
+    class="custom-input"
+    autocomplete="off"
+    [attr.name]="controlName"
+    type="text"
+    [attr.id]="controlName"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+    [(ngModel)]="value"
+    (input)="onInput($event)" />
+  <label class="custom-label theme-text" [for]="controlName" [class.active]="isActive">{{ label }}</label>
+
+  <ng-container *ngIf="errors.length > 0">
+    <div class="error" *ngFor="let error of errors">{{ error }}</div>
+  </ng-container>
+</div>
+
+
