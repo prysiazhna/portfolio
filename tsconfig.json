@@ -1,5 +1,3 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -10,7 +8,9 @@
       "@components/*": ["app/components/*"],
       "@directives/*": ["app/directives/*"],
       "@configs/*": ["app/configs/*"],
-      "@models/*": ["app/models/*"]
+      "@models/*": ["app/models/*"],
+      "@services/*": ["app/services/*"],
+      "@env/*": ["environments/*"]
     },
     "noImplicitOverride": true,
     "strictPropertyInitialization": false,

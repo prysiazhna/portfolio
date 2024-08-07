@@ -1,16 +1,17 @@
 import {Component} from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CommonModule} from '@angular/common';
 import {CustomInputComponent} from "@components/custom-input/custom-input.component";
 import {CustomTextareaComponent} from "@components/custom-textarea/custom-textarea.component";
-
+import emailjs from '@emailjs/browser';
+import {environment} from "@env/environment";
+import {CustomToastrService} from "@services/toastr.service";
+import {ToastrType} from "@models/common.enums";
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    HttpClientModule,
     CommonModule,
     CustomInputComponent,
     CustomTextareaComponent
@@ -18,13 +19,17 @@ import {CustomTextareaComponent} from "@components/custom-textarea/custom-textar
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.less']
 })
-export class ContactComponent {
-  contactForm: FormGroup;
+export class ContactComponent{
+public contactForm: FormGroup;
 
   constructor(
-    public fb: FormBuilder,
-    public http: HttpClient,
+    private fb: FormBuilder,
+    private toastrService: CustomToastrService
   ) {
+    this.initForm();
+  }
+
+  private initForm(): void {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -32,52 +37,49 @@ export class ContactComponent {
     });
   }
 
-   get f() {
-    return this.contactForm.controls;
-  }
-
-  getErrors(controlName: string): string[] {
-    const control = this.contactForm?.get(controlName);
-    const errors: string[] = [];
-    if (control && control.dirty && control.invalid) {
+  public getErrors(controlName: string): string[] {
+    const control = this.contactForm.get(controlName);
+    if (control?.dirty && control.invalid) {
       const controlErrors = control.errors ?? {};
-
-      if (controlErrors['required']) {
-        errors.push(`${this.capitalize(controlName)} is required`);
-      }
-      if (controlErrors['minlength']) {
-        errors.push(`${this.capitalize(controlName)} must be at least ${controlErrors['minlength'].requiredLength} characters long`);
-      }
-      if (controlErrors['email']) {
-        errors.push(`Invalid email address`);
-      }
-      return errors;
+      return Object.keys(controlErrors).map(errorKey => this.getErrorMessage(controlName, errorKey, controlErrors[errorKey]));
     }
     return [];
   }
 
-  public capitalize(str: string): string {
+  private getErrorMessage(controlName: string, errorKey: string, errorValue: any): string {
+    const fieldName = this.capitalize(controlName);
+    const errorMessages: { [key: string]: string } = {
+      'required': `${fieldName} is required`,
+      'minlength': `${fieldName} must be at least ${errorValue.requiredLength} characters long`,
+      'email': 'Invalid email address'
+    };
+    return errorMessages[errorKey] || '';
+  }
+
+  private capitalize(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-
-
-  onSubmit() {
+  public onSubmit(): void {
     if (this.contactForm.valid) {
       const formData = this.contactForm.value;
-      this.sendEmail(formData).subscribe(
-        response => console.log('Email sent successfully', response),
-        error => console.error('Error sending email', error)
-      );
+      this.sendEmail(formData);
     }
   }
 
-  sendEmail(formData: any) {
-    const emailData = {
-      to: 'your-email@example.com',
-      subject: 'Contact Form Submission',
-      text: `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`
-    };
-    return this.http.post('https://your-email-api-endpoint', emailData);
+  private sendEmail(formData: any): void {
+    emailjs.init(environment.emailjs.userID);
+    emailjs.send(environment.emailjs.serviceID, environment.emailjs.templateID, {
+      from_name: formData.name,
+      message: formData.message,
+      from_email: formData.email,
+    }).then(
+      () => {
+        this.toastrService.showToastr(ToastrType.Success,'Email has been sent','SUCCESS' )
+      },
+      () => {
+        this.toastrService.showToastr(ToastrType.Error,'Email has not been sent','FAILED' )
+      },
+    );
   }
 }
