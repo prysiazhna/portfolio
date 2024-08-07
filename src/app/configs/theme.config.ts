@@ -2,7 +2,6 @@ import {ColorOptionsModel} from "@models/common.models";
 
 export const ColorOptions: ColorOptionsModel[] = [
   { class: 'blue', value: '#4884ec' },
-  { class: 'red', value: '#f93b3b' },
   { class: 'green', value: '#3d983d' },
   { class: 'purple', value: '#bb69bb' },
   { class: 'orange', value: '#eba015' },
@@ -11,4 +10,4 @@ export const ColorOptions: ColorOptionsModel[] = [
 ];
 
 export const DefaultTheme = 'light';
-export const DefaultThemeColor = '#746e6e';//#333
+export const DefaultThemeColor = '#746e6e';

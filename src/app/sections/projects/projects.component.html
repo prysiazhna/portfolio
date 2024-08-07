@@ -1,1 +1,11 @@
-<p  id="projects">projects works!</p>
+<div id="projects" class="project-container">
+  <h1 class="section-title">Projects</h1>
+  <div class="project-items">
+    <app-project-card
+      *ngFor="let project of projects"
+      [imageUrl]="project.imageUrl"
+      [title]="project.title"
+      [githubLink]="project.githubLink">
+    </app-project-card>
+  </div>
+</div>

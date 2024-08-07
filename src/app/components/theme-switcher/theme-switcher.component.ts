@@ -47,7 +47,7 @@ export class ThemeSwitcherComponent implements OnInit, AfterViewInit{
 
   private setThemeColor(): void {
     this.themeColor$.subscribe(color => {
-      this.document.documentElement.style.setProperty('--theme-color', color);
+      this.document.documentElement.style.setProperty('--theme-main-color', color);
     });
   }
 

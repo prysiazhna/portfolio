@@ -1,36 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
 @import './variables.less';
 @import 'assets/less/fonts';
 
 :root {
-  --theme-color: @theme_grey;
+  --theme-main-color: @theme_grey;
+  --theme-bg-color: @white;
+  --theme-text-color: @black;
+  --theme-inverse-color: @black;
+  --theme-overlay-bg: rgba(255, 255, 255, 0.7);
   font-size: 8px;
 }
 
 body.dark-theme {
-  background-color: black;
-  color: #fff;
-
-  a, .theme-text {
-    color: #fff !important;
-  }
-
-  .theme-background:before {
-    background-color: @black !important;
-  }
+  --theme-bg-color: @black;
+  --theme-text-color: @white;
+  --theme-inverse-color: @white;
+  --theme-overlay-bg: rgba(0, 0, 0, 0.7);
 }
 
-
-.btn {
-  background-color: var(--theme-color);
-  color: #fff;
+body {
+  background-color: var(--theme-bg-color);
+  color: var(--theme-text-color);
 }
 
 * {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  //font-weight: 400;
 }
 
 .no-scroll {

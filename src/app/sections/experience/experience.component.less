@@ -7,7 +7,7 @@
 }
 
 .section-title {
-  padding: 10rem 0;
+  padding: 13rem 0 10rem 0;
 }
 
 .timeline-container {
@@ -27,7 +27,7 @@
     content: "";
     width: 2px;
     height: 100%;
-    background: var(--theme-color);
+    background: var(--theme-main-color);
     left: 50%;
     top: 0;
     position: absolute;
@@ -52,7 +52,7 @@
     }
 
     .timeline-icon {
-      background: var(--theme-color);
+      background: var(--theme-main-color);
       width: 27px;
       height: 27px;
       position: absolute;
@@ -76,7 +76,7 @@
       width: 45%;
       padding: 15px;
       border-radius: 5px;
-      border: 1px solid var(--theme-color);
+      border: 1px solid var(--theme-main-color);
       position: relative;
       display: flex;
       flex-direction: column;
@@ -85,7 +85,7 @@
       margin-bottom: 20px;
 
       &-title {
-        color: @black;
+        color: var(--theme-text-color);
         font-weight: 500;
         font-size: 18px;
         text-align: right;
@@ -109,12 +109,12 @@
         position: absolute;
         right: -9px;
         top: 19px;
-        background: white;
+        background: var(--theme-bg-color);
         width: 16px;
         height: 16px;
         transform: rotate(-45deg);
-        border-bottom: 1px solid var(--theme-color);
-        border-right: 1px solid var(--theme-color);
+        border-bottom: 1px solid var(--theme-main-color);
+        border-right: 1px solid var(--theme-main-color);
       }
 
       &.right {
@@ -127,12 +127,12 @@
         &:before {
           left: -9px;
           top: 19px;
-          background: white;
+          background: var(--theme-bg-color);
           width: 16px;
           height: 16px;
           transform: rotate(135deg);
-          border-bottom: 1px solid var(--theme-color);
-          border-right: 1px solid var(--theme-color);
+          border-bottom: 1px solid var(--theme-main-color);
+          border-right: 1px solid var(--theme-main-color);
         }
 
         .timeline-content-text, .timeline-content-title {

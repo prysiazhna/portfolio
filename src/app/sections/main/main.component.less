@@ -1,3 +1,5 @@
+@import './variables.less';
+
 .main-content {
   display: flex;
   justify-content: center;
@@ -17,7 +19,7 @@
       transition: transform 2s ease, box-shadow 2s ease;
 
       &:hover {
-        --box-shadow-color: var(--theme-color);
+        --box-shadow-color: var(--theme-main-color);
         box-shadow: 0 -14px 130px -19px var(--box-shadow-color);
       }
     }
@@ -29,7 +31,7 @@
       align-items: center;
 
       .greeting {
-        color: #555555;
+        color: var(--theme-text-color);
         font-weight: 600;
         font-size: 2rem;
         margin-bottom: 2rem;
@@ -48,7 +50,7 @@
       }
 
       .role {
-        color: #555555;
+        color: var(--theme-text-color);
         font-weight: 400;
         font-size: 2.8rem;
         margin: 2rem 0;
@@ -63,28 +65,18 @@
           font-weight: 600;
           transition: all 300ms ease;
           padding: 1.6rem;
-          width: 16rem;
+          width: 26rem;
+          letter-spacing: 2px;
           border-radius: 4rem;
-          border: var(--theme-color) 0.2rem solid;
+          border: var(--theme-main-color) 0.2rem solid;
 
           &-outline {
-            color: var(--theme-color);
+            color: var(--theme-main-color);
             background: none;
 
             &:hover {
-              color: #fff;
-              background: var(--theme-color);
-              cursor: pointer;
-            }
-          }
-
-          &-filled {
-            color: #fff;
-            background: var(--theme-color);
-
-            &:hover {
-              background: #555555;
-              border-color: #555555;
+              color: @white;
+              background: var(--theme-main-color);
               cursor: pointer;
             }
           }
@@ -98,7 +90,7 @@
         margin-top: 2rem;
 
         .link-icon {
-          color: var(--theme-color);
+          color: var(--theme-main-color);
           text-decoration: none;
           transition: transform 0.4s ease;
 
@@ -107,9 +99,9 @@
           }
 
           .icon-linkedin2 {
-            background-color: var(--theme-color);
+            background-color: var(--theme-main-color);
             border-radius: 50%;
-            color: #fff;
+            color: @white;
             margin: 0 1rem;
             width: 27px;
             height: 27px;

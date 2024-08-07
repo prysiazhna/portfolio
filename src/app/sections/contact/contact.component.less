@@ -1,3 +1,5 @@
+@import './variables.less';
+
 .contact-container {
   display: flex;
   justify-content: center;
@@ -24,26 +26,21 @@
       padding: 1.6rem;
       width: 20rem;
       border-radius: 4rem;
-      border: var(--theme-color) 0.2rem solid;
-      color: #fff;
-      background: var(--theme-color);
+      border: var(--theme-main-color) 0.2rem solid;
+      color: var(--theme-main-color);
+      background: none;
       align-self: center;
       font-size: 2.3rem;
       margin-top: 50px;
 
       &:hover {
-        background: #555555;
-        border-color: #555555;
+        background: var(--theme-main-color);
+        color: @white;
         cursor: pointer;
       }
 
       &:disabled {
         cursor: not-allowed;
-        opacity: 0.6;
-
-        &:hover {
-          background: var(--theme-color);
-        }
       }
     }
   }

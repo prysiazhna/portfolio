@@ -1,4 +1,4 @@
-export  interface ColorOptionsModel {
+export interface ColorOptionsModel {
   class: string;
   value: string;
 }
@@ -14,10 +14,16 @@ export interface TechStackModel {
 
 export interface TimelineItemModel {
   icon: string;
-  title:  string;
-  content:  string;
+  title: string;
+  content: string;
   year: string;
   right: boolean;
+}
+
+export interface ProjectListModel {
+  imageUrl: string;
+  title: string;
+  githubLink: string;
 }
 
 

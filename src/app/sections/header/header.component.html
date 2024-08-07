@@ -2,7 +2,7 @@
   class="header"
   appShrinkHeader
   [enableShrink]="!isMenuActive"
-  [ngClass]="{'expanded': isMenuActive,'dark-theme': isDarkTheme$ | async}"
+  [ngClass]="{'expanded': isMenuActive}"
   appScrollSpy
   [(activeSection)]="activeSection">
   <div class="container">
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <nav class="menu" [ngClass]="{'active': isMenuActive, 'dark-theme': isDarkTheme$ | async}">
+    <nav class="menu" [ngClass]="{'active': isMenuActive}">
       <ul class="list">
         <li *ngFor="let item of menuItems" class="list-item">
           <a

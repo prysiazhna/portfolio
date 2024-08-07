@@ -20,6 +20,6 @@ export class ThemeService {
 
   public changeColor(color: string): void {
     this.colorSubject.next(color);
-    document.documentElement.style.setProperty('--theme-color', color);
+    document.documentElement.style.setProperty('--theme-main-color', color);
   }
 }

@@ -3,8 +3,6 @@ import {CommonModule} from "@angular/common";
 import {ThemeSwitcherComponent} from "@components/theme-switcher/theme-switcher.component";
 import {HamburgerComponent} from "@components/hamburger/hamburger.component";
 import {ShrinkHeaderDirective} from "@directives/shrink-header.directive";
-import {map, Observable} from "rxjs";
-import {ThemeService} from "@components/theme-switcher/theme-switcher.service";
 import {MenuItems} from "@configs/menu.config";
 import {RouterLink} from "@angular/router";
 import {ScrollSpyDirective} from "@directives/scroll-spy.directive";
@@ -18,15 +16,9 @@ import {ScrollSpyDirective} from "@directives/scroll-spy.directive";
 })
 export class HeaderComponent {
   public isMenuActive = false;
-  public isDarkTheme$: Observable<boolean>;
   public activeSection: string = '';
   public menuItems = MenuItems;
 
-  constructor(
-    private themeService: ThemeService
-  ) {
-    this.isDarkTheme$ = this.themeService.theme$.pipe(map(theme => theme === 'dark'));
-  }
 
   public toggleMenu(): void {
     this.isMenuActive = !this.isMenuActive;
