@@ -64,6 +64,7 @@ public contactForm: FormGroup;
     if (this.contactForm.valid) {
       const formData = this.contactForm.value;
       this.sendEmail(formData);
+      this.contactForm.reset();
     }
   }
 
