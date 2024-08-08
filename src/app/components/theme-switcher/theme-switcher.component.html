@@ -3,9 +3,8 @@
   <i class="ico icon-gear" (click)="togglePalette()"></i>
 </div>
 
-<div class="palette" *ngIf="showPalette">
+<div class="palette" [ngClass]="{ 'show': showPalette }">
   <div *ngFor="let color of colorOptions; let i = index"
-       #colorOption
        class="color-option"
        [ngClass]="color.class"
        (click)="changeColor(color.value)">

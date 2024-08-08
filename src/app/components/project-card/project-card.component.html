@@ -1,10 +1,8 @@
 <div class="project">
-  <img [src]="imageUrl" [alt]="title" class="project-image">
+  <img [ngSrc]="imageUrl" alt="Chat Image" [priority]="true" [fill]="true" class="project-image">
   <h2 class="project-title">{{ title }}</h2>
   <div class="project-source">
-    <button class="project-source-btn">
-      <a [href]="githubLink" target="_blank" class="project-source-btn-link">Github</a>
-    </button>
+    <button class="project-source-btn" (click)="openLink()">Github</button>
   </div>
 </div>
 

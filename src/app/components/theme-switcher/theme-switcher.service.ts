@@ -13,9 +13,9 @@ export class ThemeService {
   public color$ = this.colorSubject.asObservable();
 
   public toggleTheme(): void {
-    const newTheme = this.themeSubject.value === 'light' ? 'dark' : 'light';
+    const newTheme = this.themeSubject.value === 'dark' ? 'light' : 'dark';
     this.themeSubject.next(newTheme);
-    document.body.classList.toggle('dark-theme', newTheme === 'dark');
+    document.body.classList.toggle('light-theme', newTheme === 'light');
   }
 
   public changeColor(color: string): void {

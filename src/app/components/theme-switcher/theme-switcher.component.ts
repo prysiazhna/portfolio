@@ -1,11 +1,10 @@
-import {AfterViewInit, Component, Inject, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {ThemeService} from "./theme-switcher.service";
 import {map, Observable} from "rxjs";
 import { DOCUMENT } from '@angular/common';
 import {ColorOptionsModel} from "@models/common.models";
 import {ColorOptions} from "@configs/theme.config";
-import {gsap} from "gsap";
 
 @Component({
   selector: 'app-theme-switcher',
@@ -14,12 +13,11 @@ import {gsap} from "gsap";
   templateUrl: './theme-switcher.component.html',
   styleUrl: './theme-switcher.component.less'
 })
-export class ThemeSwitcherComponent implements OnInit, AfterViewInit{
+export class ThemeSwitcherComponent implements OnInit{
   public themeIcon$: Observable<string>;
   public themeColor$: Observable<string>;
   public showPalette: boolean = false;
   public colorOptions: ColorOptionsModel[] = ColorOptions;
-  @ViewChildren('colorOption') colorOptionsElements!: QueryList<any>;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -31,13 +29,7 @@ export class ThemeSwitcherComponent implements OnInit, AfterViewInit{
   public ngOnInit(): void {
     this.setThemeColor();
   }
-  public ngAfterViewInit(): void {
-    this.colorOptionsElements.changes.subscribe(() => {
-      if (this.showPalette) {
-        this.animatePaletteItems();
-      }
-    });
-  }
+
   public getTheme(): void {
     this.themeColor$ = this.themeService.color$;
     this.themeIcon$ = this.themeService.theme$.pipe(
@@ -62,12 +54,5 @@ export class ThemeSwitcherComponent implements OnInit, AfterViewInit{
   public changeColor(color: string): void {
     this.themeService.changeColor(color);
     this.showPalette = false;
-  }
-  private animatePaletteItems(): void {
-    gsap.fromTo('.color-option',
-      { x: 0 },
-      { x: -38, duration: 0.1,
-        ease: "expo.out", stagger: 0.1 }
-    );
   }
 }

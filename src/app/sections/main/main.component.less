@@ -16,7 +16,7 @@
       border-radius: 50%;
       width: 50rem;
       height: 50rem;
-      transition: transform 2s ease, box-shadow 2s ease;
+      transition: transform 1s ease, box-shadow 1s ease;
 
       &:hover {
         --box-shadow-color: var(--theme-main-color);
@@ -90,7 +90,7 @@
         margin-top: 2rem;
 
         .link-icon {
-          color: var(--theme-main-color);
+          color: var(--theme-text-color);
           text-decoration: none;
           transition: transform 0.4s ease;
 
@@ -99,15 +99,20 @@
           }
 
           .icon-linkedin2 {
-            background-color: var(--theme-main-color);
+            background-color: var(--theme-text-color);
             border-radius: 50%;
-            color: @white;
+            color: var(--theme-bg-color);
             margin: 0 1rem;
             width: 27px;
             height: 27px;
             display: flex;
             align-items: center;
             justify-content: center;
+
+            &:before {
+              font-size: 16px;
+              padding: 0 0 2px 1px;
+            }
           }
 
           .icon-github {

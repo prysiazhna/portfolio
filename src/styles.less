@@ -2,19 +2,19 @@
 @import 'assets/less/fonts';
 
 :root {
-  --theme-main-color: @theme_grey;
-  --theme-bg-color: @white;
-  --theme-text-color: @black;
-  --theme-inverse-color: @black;
-  --theme-overlay-bg: rgba(255, 255, 255, 0.7);
-  font-size: 8px;
-}
-
-body.dark-theme {
+  --theme-main-color: @theme_orange;
   --theme-bg-color: @black;
   --theme-text-color: @white;
   --theme-inverse-color: @white;
   --theme-overlay-bg: rgba(0, 0, 0, 0.7);
+  font-size: 8px;
+}
+
+body.light-theme {
+  --theme-bg-color: @white;
+  --theme-text-color: @black;
+  --theme-inverse-color: @black;
+  --theme-overlay-bg: rgba(255, 255, 255, 0.7);
 }
 
 body {
@@ -39,6 +39,7 @@ body {
   padding-bottom: 14rem;
 }
 
+/* Custom Toastr */
 .toastr-message {
   font-size: 14px;
 }
@@ -46,3 +47,21 @@ body {
 .toastr-title {
   font-size: 16px;
 }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-main-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-inverse-color);
+}
+

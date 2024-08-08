@@ -25,49 +25,52 @@
     }
   }
 }
+
 .palette {
   position: absolute;
   top: 74px;
-  right: -38px;
-}
-
-.color-option {
-  width: 2.6rem;
-  height: 2.6rem;
+  right: -20px;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
   display: flex;
   flex-direction: column;
-  margin: 0.8rem 0;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: all 0.8s ease;
 
-  &:hover {
-    transform: scale(1.5);
+  &.show {
+    transform: translateX(-20px);
   }
 
-  &.blue {
-    background-color: @theme_blue;
+  .color-option {
+    width: 2.6rem;
+    height: 2.6rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0.8rem 0;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.8s ease;
 
-  }
+    &:hover {
+      transform: scale(1.5);
+    }
 
-  &.green {
-    background-color: @theme_green;
-  }
+    &.blue {
+      background-color: @theme_blue;
+    }
 
-  &.purple {
-    background-color: @theme_purple;
-  }
+    &.green {
+      background-color: @theme_green;
+    }
 
-  &.orange {
-    background-color: @theme_orange;
-  }
+    &.purple {
+      background-color: @theme_purple;
+    }
 
-  &.pink {
-    background-color: @theme_pink;
-  }
+    &.orange {
+      background-color: @theme_orange;
+    }
 
-  &.grey {
-    background-color: @theme_grey;
+    &.pink {
+      background-color: @theme_pink;
+    }
   }
 }
-

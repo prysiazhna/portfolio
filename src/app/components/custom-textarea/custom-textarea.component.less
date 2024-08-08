@@ -11,73 +11,73 @@
   display: grid;
   position: relative;
   width: 100%;
-}
 
-.custom-textarea {
-  color: var(--theme-inverse-color);
-  background: inherit;
-  padding: 2rem;
-  width: 100%;
-  border: 0.2rem solid var(--theme-inverse-color);
-  border-radius: 1em;
-  font-weight: 500;
-  resize: none;
-  height: 20rem;
 
-  &:focus {
-    border-color: var(--theme-main-color);
-  }
-
-  &:focus + .custom-label {
-    font-size: 2rem;
-    color: var(--theme-main-color);
-    top: 0;
-  }
-
-  &:focus + .custom-label::before {
-    height: 90%;
-    opacity: 1;
-  }
-}
-
-.custom-label {
-  transition: top 100ms linear, font-size 100ms linear;
-  background: var(--theme-bg-color);
-  position: absolute;
-  left: 1.9em;
-  top: 3rem;
-  transform: translateY(-50%);
-  padding-inline: 0.5em;
-  user-select: none;
-  cursor: text;
-  font-weight: 500;
-  font-size: 2rem;
-  letter-spacing: 1px;
-  color: var(--theme-text-color);
-
-  &:before {
-    transition: height 50ms linear 50ms, opacity 100ms linear;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
+  .custom-textarea {
+    color: var(--theme-inverse-color);
+    background: inherit;
+    padding: 2rem;
     width: 100%;
-    height: 0;
-    border-inline: 0.2rem solid var(--theme-main-color);
-    opacity: 0;
-    content: "";
+    border: 0.2rem solid var(--theme-inverse-color);
+    border-radius: 1em;
+    font-weight: 500;
+    resize: none;
+    height: 20rem;
+
+    &:focus {
+      border-color: var(--theme-main-color);
+    }
+
+    &:focus + .custom-label {
+      font-size: 2rem;
+      color: var(--theme-main-color);
+      top: 0;
+    }
+
+    &:focus + .custom-label::before {
+      height: 90%;
+      opacity: 1;
+    }
   }
 
-  &.active {
-    top: 0;
+  .custom-label {
+    transition: top 100ms linear, font-size 100ms linear;
+    background: var(--theme-bg-color);
+    position: absolute;
+    left: 1.9em;
+    top: 3rem;
+    transform: translateY(-50%);
+    padding-inline: 0.5em;
+    user-select: none;
+    cursor: text;
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: var(--theme-text-color);
+
+    &:before {
+      transition: height 50ms linear 50ms, opacity 100ms linear;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 100%;
+      height: 0;
+      border-inline: 0.2rem solid var(--theme-main-color);
+      opacity: 0;
+      content: "";
+    }
+
+    &.active {
+      top: 0;
+    }
+  }
+
+  .error {
+    position: absolute;
+    left: 16px;
+    bottom: -23px;
+    color: red;
+    font-size: 1.6rem;
   }
 }
-
-.error {
-  position: absolute;
-  left: 16px;
-  bottom: -23px;
-  color: red;
-  font-size: 1.6rem;
-}
-
