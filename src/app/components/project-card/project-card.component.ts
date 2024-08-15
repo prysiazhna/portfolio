@@ -1,19 +1,18 @@
 import {Component, Input} from '@angular/core';
-import {NgOptimizedImage} from "@angular/common";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
+import {ProjectModel} from "@models/common.models";
 
 @Component({
   selector: 'app-project-card',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage,CommonModule],
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.less'
 })
 export class ProjectCardComponent {
-  @Input() imageUrl: string;
-  @Input() title: string;
-  @Input() githubLink: string;
+  @Input() project: ProjectModel;
 
- public openLink():void {
-    window.open(this.githubLink, '_blank');
+  public openLink(link: string): void {
+    window.open(link, '_blank');
   }
 }

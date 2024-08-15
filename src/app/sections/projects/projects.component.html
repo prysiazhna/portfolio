@@ -3,9 +3,7 @@
   <div class="project-items">
     <app-project-card
       *ngFor="let project of projects"
-      [imageUrl]="project.imageUrl"
-      [title]="project.title"
-      [githubLink]="project.githubLink">
+      [project]="project">
     </app-project-card>
   </div>
 </div>

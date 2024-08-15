@@ -1,8 +1,9 @@
 <div class="project">
-  <img [ngSrc]="imageUrl" alt="Chat Image" [priority]="true" [fill]="true" class="project-image">
-  <h2 class="project-title">{{ title }}</h2>
+  <img [ngSrc]="project.imageUrl" alt="Chat Image" [priority]="true" [fill]="true" class="project-image">
+  <h2 class="project-title">{{ project.title }}</h2>
   <div class="project-source">
-    <button class="project-source-btn" (click)="openLink()">Github</button>
+    <button class="project-source-btn" (click)="openLink(project.githubLink)">Github</button>
+    <button *ngIf="project.demo" class="project-source-btn" (click)="openLink(project.demo)">Play</button>
   </div>
 </div>
 

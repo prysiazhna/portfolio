@@ -1,4 +1,6 @@
-export const ProjectList = [
+import {ProjectModel} from "@models/common.models";
+
+export const ProjectList: ProjectModel[] = [
   {
     imageUrl: 'assets/images/music.png',
     title: 'MusicApp',
@@ -14,4 +16,10 @@ export const ProjectList = [
     title: 'TaskManager',
     githubLink: 'https://github.com/prysiazhna/task-manager'
   },
+  {
+    imageUrl: 'assets/images/tetris.png',
+    title: 'Tetris',
+    githubLink: 'https://github.com/prysiazhna/tetris',
+    demo: 'https://tetris-b4m1.onrender.com/'
+  }
 ];

@@ -20,10 +20,11 @@ export interface TimelineItemModel {
   right: boolean;
 }
 
-export interface ProjectListModel {
+export interface ProjectModel {
   imageUrl: string;
   title: string;
   githubLink: string;
+  demo?: string
 }
 
 
