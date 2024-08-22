@@ -3,7 +3,9 @@
   <h2 class="project-title">{{ project.title }}</h2>
   <div class="project-source">
     <button class="project-source-btn" (click)="openLink(project.githubLink)">Github</button>
-    <button *ngIf="project.demo" class="project-source-btn" (click)="openLink(project.demo)">Play</button>
+    <button class="project-source-btn" (click)="openLink(project.demo)">
+      {{ project.demoButton }}
+    </button>
   </div>
 </div>
 

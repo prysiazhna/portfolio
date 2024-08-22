@@ -24,7 +24,8 @@ export interface ProjectModel {
   imageUrl: string;
   title: string;
   githubLink: string;
-  demo?: string
+  demo: string;
+  demoButton: string;
 }
 
 
