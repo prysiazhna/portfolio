@@ -23,10 +23,17 @@ export const ProjectList: ProjectModel[] = [
     demoButton: 'Demo'
   },
   {
+    imageUrl: 'assets/images/weather.png',
+    title: 'WeatherApp',
+    githubLink: 'https://github.com/prysiazhna/weather-app',
+    demo: 'https://prysiazhna-weather-app.vercel.app/',
+    demoButton: 'Demo'
+  },
+  {
     imageUrl: 'assets/images/tetris.png',
     title: 'Tetris',
     githubLink: 'https://github.com/prysiazhna/tetris',
     demo: 'https://tetris-b4m1.onrender.com/',
     demoButton: 'Play'
-  }
+  },
 ];
