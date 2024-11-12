@@ -12,18 +12,6 @@
     align-items: center;
     gap: 12rem;
 
-    .profile-image {
-      border-radius: 50%;
-      width: 50rem;
-      height: 50rem;
-      transition: transform 1s ease, box-shadow 1s ease;
-
-      &:hover {
-        --box-shadow-color: var(--theme-main-color);
-        box-shadow: 0 -14px 130px -19px var(--box-shadow-color);
-      }
-    }
-
     .info {
       display: flex;
       flex-direction: column;
@@ -132,11 +120,6 @@
     .profile {
       flex-direction: column;
       gap: 6rem;
-
-      .profile-image {
-        width: 37.5rem;
-        height: 37.5rem;
-      }
     }
   }
 }
@@ -147,11 +130,6 @@
 
     .profile {
       flex-direction: column;
-
-      .profile-image {
-        width: 200px;
-        height: 200px;
-      }
 
       .buttons {
         display: flex;

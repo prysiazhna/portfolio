@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--theme-bg-color);
+}
+
+svg {
+  flex-shrink: 0;
+  width: 60rem;
+  max-width: 90vw;
+}
+
+@media (max-width: 900px) {
+  svg {
+    width: 37.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  svg {
+    width: 200px;
+  }
+}
