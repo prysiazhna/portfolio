@@ -36,4 +36,11 @@ export const ProjectList: ProjectModel[] = [
     demo: 'https://tetris-b4m1.onrender.com/',
     demoButton: 'Play'
   },
+  {
+    imageUrl: 'assets/images/interior.png',
+    title: 'Interior Design portfolio',
+    githubLink: 'https://github.com/prysiazhna/interior-design-portfolio',
+    demo: 'https://github.com/prysiazhna/interior-design-portfolio',
+    demoButton: 'In progress'
+  },
 ];
