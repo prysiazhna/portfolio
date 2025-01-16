@@ -40,7 +40,7 @@ export const ProjectList: ProjectModel[] = [
     imageUrl: 'assets/images/interior.png',
     title: 'Interior Design portfolio',
     githubLink: 'https://github.com/prysiazhna/interior-design-portfolio',
-    demo: 'https://github.com/prysiazhna/interior-design-portfolio',
-    demoButton: 'In progress'
+    demo: 'https://ponych.vercel.app/',
+    demoButton: 'Demo'
   },
 ];
