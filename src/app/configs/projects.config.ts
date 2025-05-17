@@ -17,16 +17,16 @@ export const ProjectList: ProjectModel[] = [
   },
   {
     imageUrl: 'assets/images/tasklist.png',
-    title: 'TaskManager',
+    title: 'Task Manager',
     githubLink: 'https://github.com/prysiazhna/task-manager',
     demo: 'https://task-manager-o67l.onrender.com',
     demoButton: 'Demo'
   },
   {
-    imageUrl: 'assets/images/weather.png',
-    title: 'WeatherApp',
-    githubLink: 'https://github.com/prysiazhna/weather-app',
-    demo: 'https://prysiazhna-weather-app.vercel.app/',
+    imageUrl: 'assets/images/sar.png',
+    title: 'Appliance Repair',
+    githubLink: 'https://github.com/prysiazhna/appliance-repair',
+    demo: 'https://standard-appliance-repair.vercel.app',
     demoButton: 'Demo'
   },
   {
@@ -38,7 +38,7 @@ export const ProjectList: ProjectModel[] = [
   },
   {
     imageUrl: 'assets/images/interior.png',
-    title: 'Interior Design portfolio',
+    title: 'Interior Design Portfolio',
     githubLink: 'https://github.com/prysiazhna/interior-design-portfolio',
     demo: 'https://ponych.vercel.app/',
     demoButton: 'Demo'
